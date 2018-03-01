@@ -43,4 +43,10 @@ Usage: trickle [-hvVs] [-d <rate>] [-u <rate>] [-w <length>] [-t <seconds>]
 	-P <path>    Preload the specified .so instead of the default one
 ```
 
-You can set the global settings for Trickle with `trickled`, adjusting the values for the options according to your internet metrics. For instance, if you have a 12 Mbps download speed and a 1 Mbps upload speed, you could try `trickled -d 300 -u 25`, then run `trickle parity`. (1 KB = 0.008 Mbits.) You may want to tweak the values of these two options (and maybe others, e.g. `-w`, `-t`, `-l` and `-L`). And if you don't need to limit the bandwidth to browse or run other applications, such as when you are away from the computer or overnight, you can just run `parity`.
+You can set the global settings for Trickle with `trickled`, adjusting the values for the options according to your internet metrics. Setting the global settings with `trickled` saves having to specify the options every time you run `trickle`. For instance, if you have a 12 Mbps download speed and a 1 Mbps upload speed, you could try `trickled -d 300 -u 25`, then run `trickle parity`. (1 KB = 0.008 Mbits.) You may want to tweak the values of these two options (and maybe others, e.g. `-w`, `-t`, `-l` and `-L`). For instance with a 20 Mbps max. speed, you could try:
+
+```
+trickled -d 950 -u 165 -t 0.2 -l 20 -w 256
+trickle parity
+```
+And if you don't need to limit the bandwidth to browse or run other applications, such as when you are away from the computer or overnight, you can just run `parity`.
