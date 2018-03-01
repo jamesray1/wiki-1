@@ -23,7 +23,7 @@ Usage: trickle [-hvVs] [-d <rate>] [-u <rate>] [-w <length>] [-t <seconds>]
 	-P <path>    Preload the specified .so instead of the default one
 ```
 
-You can set the global settings for Trickle with `trickled`, adjusting the values for the options according to your internet metrics. For instance, if you have a 12 Mbps download speed and a 1 Mbps upload speed, you could try `trickled -d 5000 -u 500`, then run `parity` which is what one user had, and this worked well for him, resulting in being able to browser with no noticeable decline in speed.
+You can set the global settings for Trickle with `trickled`, adjusting the values for the options according to your internet metrics. For instance, if you have a 12 Mbps download speed and a 1 Mbps upload speed, you could try `trickled -d 750 -u 50`, then run `parity` which is what one user had, and this worked well for him, resulting in being able to browser with no noticeable decline in speed.
 
 ## Configure network IP range
 
