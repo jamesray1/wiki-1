@@ -59,3 +59,21 @@ Further fine-tuning of the pruning is enable via the `--pruning history` and `--
                                  within this limit, and at least --pruning-history states
                                  will always be kept. (default: 75)
 ```
+
+### Troubleshooting / manual fixes until there are more automated fixes
+
+#### How to fix slow syncing block-by-block after snapshotting
+
+Currently if Parity is slowly syncing block-by-block after getting snapshots and will take a very long time to catch up to the current state, then until this bug is fixed, you can do the following.
+
+In the terminal, disable Parity (<kbd>CTRL</kbd> + <kbd>C</kbd>). Then `cd ~/parity/target/release` and run `./parity db kill`. Remove the chains directory. On Linux, run `rm -r ~/.local/share/io.parity.ethereum/chains/ethereum`. Remove the similar directory in the following folders.
+* On Windows: `\AppData\Local\Parity\Ethereum\`
+* On Mac: `/Users/you/Library/Application Support/io.parity.ethereum`
+
+Then restart Parity (`cd ~/parity/target/release` and run `./parity`).
+
+Check to see the number of snapshots, e.g. `2018-03-09 08:57:43 Syncing snapshot 0/1030`. If you have more than 1000 snapshots, then this should be enough to sync quickly. If you have less than 1000 snapshots, halt Parity and restart it. If there are still less than 1000 snapshots, try again with more peers e.g. with `./parity --peers 128` (the default is 25). And if there are still less than 1000 snapshots, try again later.
+
+#### How to fix a port that is already in use
+
+If after running Parity you get the error: `Network port V4(0.0.0.0:30303) is already in use, make sure that another instance of an Ethereum client is not running or change the port using the --port option.`, just try incrementing the port by one and keep doing this until it runs, i.e. start with `./parity --port 30304).
