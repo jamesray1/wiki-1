@@ -80,7 +80,7 @@ You can run `ionice -c 3 parity ui --max-peers 50 --cache-size 1024 --log-file p
 
 If it doesn't display `Syncing snapshot ###/###`, e.g. `Syncing snapshot 299/807`, then restart Parity (<kbd>CTRL</kbd> + <kbd>c</kbd> then run the above command again, `ionice -c 3 parity ui --max-peers 50 --cache-size 1024 --log-file parity-194-startingwarp1.log --port 30304`). Wait about 30 s after Parity shuts down before running it again. As above, if it still doesn't display, try again 5 minutes later, then an hour later, etc. Also, if warp sync finishes but it hasn't got up to the latest block (instead it says `Syncing #<block number>`), you can also restart Parity.
 
-You can set reserved peers, e.g. in Australia you can use [these nodes](https://drive.google.com/open?id=1cgxipJLnm5i_d-iQessvaYbT3mt6bhKHXn14lzTRIBM).
+You can set reserved peers, e.g. in Australia you can use [these nodes](https://drive.google.com/open?id=1zKUoby3969is28s2rGJepVYjjaF-KjeRujXNFUO4MtY).
 
 #### How to fix a port that is already in use
 
