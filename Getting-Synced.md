@@ -68,17 +68,19 @@ Currently if Parity is slowly syncing block-by-block after getting snapshots and
 
 In the terminal, disable Parity (<kbd>CTRL</kbd> + <kbd>C</kbd>). 
 
-Run `ntpq -p` to sync the system time, while you can also check that it is synced at https://time.is/. Then `cd ~/parity/target/release` and run `./parity db kill`. Remove the chains directory. On Linux, run `rm -r ~/.local/share/io.parity.ethereum/chains/ethereum`. Remove the similar directory in the following folders.
+Run `ntpq -p` to sync the system time, while you can also check that it is synced at https://time.is/. Then run `parity` or navigate to the executable file and run it, e.g. `cd ~/parity/target/release`, and run `./parity db kill`. Remove the chains directory. On Linux, run `rm -r ~/.local/share/io.parity.ethereum/chains/ethereum`. Remove the similar directory in the following folders.
 * On Windows: `\AppData\Local\Parity\Ethereum\`
 * On Mac: `/Users/you/Library/Application Support/io.parity.ethereum`
 
 Then restart Parity (you can just run `parity`, or navigate to the executable file and run it, e.g. `cd ~/parity/target/release` and run `./parity`).
 
-Check to see the number of snapshots, e.g. `2018-03-09 08:57:43 Syncing snapshot 0/1030`. If you have more than 1000 snapshots, then this should be enough to sync quickly. If you have less than 1000 snapshots, halt Parity and restart it. If there are still less than 1000 snapshots, try again with more peers e.g. with `./parity --peers 128` (the default is 25). And if there are still less than 1000 snapshots, try again later.
+Check to see the number of snapshots, e.g. `2018-03-09 08:57:43 Syncing snapshot 0/1030`. If you have more than 1000 snapshots, then this should be enough to sync quickly. If you have less than 1000 snapshots, halt Parity and restart it. And if there are still less than 1000 snapshots, try again later.
 
 You can run `ionice -c 3 parity ui --max-peers 50 --cache-size 1024 --log-file parity-194-startingwarp1.log --port 30304`. `ionice - c 3` gives parity an idle priority, meaning that it will not impact system performance. By default, running `parity` will give it first priority to the disk. You could also explore other options with `ionice --help`. `ui` launches the UI in the browser. `--max-peers 50 --cache-size 1024` is useful e.g. for Intel processors. You can change the log file each time that you run this command if you wish. `--port 30304` is helpful to avoid conflicting with other dapps or processes that may use the same port, e.g. Geth and Akasha, where the latter is not able to change the port number.
 
-If it doesn't display `Syncing snapshot ###/###`, e.g. `Syncing snapshot 299/807`, then restart Parity (<kbd>CTRL</kbd> + <kbd>c</kbd> then run the above command again, `ionice -c 3 parity ui --max-peers 50 --cache-size 1024 --log-file parity-194-startingwarp1.log --port 30304`). Also, if warp sync finishes but it hasn't got up to the latest block (instead it says `Syncing #<block number>), you can also restart Parity.
+If it doesn't display `Syncing snapshot ###/###`, e.g. `Syncing snapshot 299/807`, then restart Parity (<kbd>CTRL</kbd> + <kbd>c</kbd> then run the above command again, `ionice -c 3 parity ui --max-peers 50 --cache-size 1024 --log-file parity-194-startingwarp1.log --port 30304`). Also, if warp sync finishes but it hasn't got up to the latest block (instead it says `Syncing #<block number>`), you can also restart Parity.
+
+You can set reserved peers, e.g. in Australia you can use [these nodes](https://drive.google.com/open?id=1cgxipJLnm5i_d-iQessvaYbT3mt6bhKHXn14lzTRIBM).
 
 #### How to fix a port that is already in use
 
