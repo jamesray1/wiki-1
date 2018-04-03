@@ -9,6 +9,7 @@ After building Parity from source:
 
 After installing Parity, just run `parity` from command line. See also [how do I configure Parity](https://github.com/paritytech/parity/wiki/FAQ#how-do-i-configure-parity) below.
 
+If you happen to have more than one version of Parity installed, and running `parity -v` gives an older version than the other version that is installed, you can run `which parity` to find where it is installed (it may be `/usr/bin/parity`, then `sudo cp <insert filepath of target/release/parity of the latest version> </usr/bin/parity or wherever the executable for parity is>, e.g. `sudo cp ~/paritytarget/release/parity /usr/bin/parity`.
 
 ### The UI isn't working when I visit 127.0.0.1:8180
 
