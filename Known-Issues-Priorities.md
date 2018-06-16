@@ -50,3 +50,4 @@ Trying to prioritize stuff here. While bridging the gap to a stable light client
 - [ ] 2. [#7162](https://github.com/paritytech/parity/issues/7162) Casper FFG proof-of-stake engine and testnet support.
 - [ ] 3. A basic light wallet for users to send and receive tokens.
 - [ ] 4. [#4228](https://github.com/paritytech/parity/issues/4228) _A modern Parity._ :)
+- [ ] 5. Sharding. This is being worked on in Rust as a separate project to Parity core development, with [Drops of Diamond](https://github.com/Drops-of-Diamond/diamond_drops). The plan is to integrate the codebase of this project into Parity. Note that there is a lot of work to do in the [sharding roadmap](https://github.com/ethereum/wiki/wiki/Sharding-roadmap), such as EWasm and Casper FFG and CBC integration, so contributors are welcome and needed!
